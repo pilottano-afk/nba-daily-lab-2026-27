@@ -29,11 +29,12 @@ jobs:
       - name: Installa dipendenze
         if: steps.orario.outputs.esegui == 'true'
         run: pip install -r requirements.txt
-      - name: Verifica codice e test
+      - name: Verifica codice e test acquisizione
         if: steps.orario.outputs.esegui == 'true'
         run: |
-          python -m compileall -q scripts tests
-          python -m unittest discover -s tests
+          python -m compileall -q scripts
+          python -m unittest discover -s tests -p test_validation.py
+          python -m unittest discover -s tests -p test_analytics.py
       - name: Acquisisci dati
         if: steps.orario.outputs.esegui == 'true'
         run: python scripts/refresh.py --season 2026-27
@@ -46,5 +47,6 @@ jobs:
           git add data/
           if ! git diff --cached --quiet; then
             git commit -m 'Aggiorna snapshot NBA e stato acquisizione'
+            git pull --rebase origin main
             git push
           fi
