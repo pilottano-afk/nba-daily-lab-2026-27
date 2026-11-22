@@ -1,5 +1,5 @@
 {
-  "started_at": "2026-11-22T06:18:35.089595+00:00",
+  "started_at": "2026-11-22T06:20:01.243154+00:00",
   "status": "failed",
   "source": "SportsDataverse",
   "promoted": false,
@@ -14,8 +14,8 @@
     "lineups_scoring_2027.parquet",
     "player_bio_2027.parquet",
     "player_master_2027.parquet",
-    "player_stats_advanced_2027.parquet",
-    "player_stats_base_2027.parquet",
+    "players_advanced_2027.parquet",
+    "players_base_2027.parquet",
     "player_stats_defense_2027.parquet",
     "player_stats_misc_2027.parquet",
     "player_stats_scoring_2027.parquet",
@@ -34,13 +34,13 @@
     "player_tracking_speeddistance_2027.parquet",
     "standings_2027.parquet",
     "team_master_2027.parquet",
-    "team_stats_advanced_2027.parquet",
-    "team_stats_base_2027.parquet",
+    "teams_advanced_2027.parquet",
+    "teams_base_2027.parquet",
     "team_stats_defense_2027.parquet",
     "team_stats_fourfactors_2027.parquet",
     "team_stats_misc_2027.parquet",
     "team_stats_opponent_2027.parquet",
     "team_stats_scoring_2027.parquet"
   ],
-  "error": "Tabella non identificata univocamente: players_base; disponibili: ['lineups_advanced_2027.parquet', 'lineups_base_2027.parquet', 'lineups_fourfactors_2027.parquet', 'lineups_master_2027.parquet', 'lineups_misc_2027.parquet', 'lineups_opponent_2027.parquet', 'lineups_scoring_2027.parquet', 'player_bio_2027.parquet', 'player_master_2027.parquet', 'player_stats_advanced_2027.parquet', 'player_stats_base_2027.parquet', 'player_stats_defense_2027.parquet', 'player_stats_misc_2027.parquet', 'player_stats_scoring_2027.parquet', 'player_stats_usage_2027.parquet', 'player_tracking_catchshoot_2027.parquet', 'player_tracking_defense_2027.parquet', 'player_tracking_drives_2027.parquet', 'player_tracking_efficiency_2027.parquet', 'player_tracking_elbowtouch_2027.parquet', 'player_tracking_painttouch_2027.parquet', 'player_tracking_passing_2027.parquet', 'player_tracking_possessions_2027.parquet', 'player_tracking_posttouch_2027.parquet', 'player_tracking_pullupshot_2027.parquet', 'player_tracking_rebounding_2027.parquet', 'player_tracking_speeddistance_2027.parquet', 'standings_2027.parquet', 'team_master_2027.parquet', 'team_stats_advanced_2027.parquet', 'team_stats_base_2027.parquet', 'team_stats_defense_2027.parquet', 'team_stats_fourfactors_2027.parquet', 'team_stats_misc_2027.parquet', 'team_stats_opponent_2027.parquet', 'team_stats_scoring_2027.parquet']"
+  "error": "Sono richiesti esclusivamente quintetti di cinque giocatori"
 }
