@@ -1,0 +1,541 @@
+{
+  "checked_at": "2026-11-22T06:24:24.336537+00:00",
+  "source_revision": "a64ba71b0c7f8f992dbaa5543794b0cc1b007bd4",
+  "promoted": false,
+  "tables": {
+    "base": {
+      "source_url": "https://raw.githubusercontent.com/sportsdataverse/hoopR-nba-stats-data/a64ba71b0c7f8f992dbaa5543794b0cc1b007bd4/nba_stats/leaguedash/parquet/lineups_base_2027.parquet",
+      "rows_before_filter": 8000,
+      "columns": [
+        "GROUP_SET",
+        "GROUP_ID",
+        "GROUP_NAME",
+        "TEAM_ID",
+        "TEAM_ABBREVIATION",
+        "GP",
+        "W",
+        "L",
+        "W_PCT",
+        "MIN",
+        "FGM",
+        "FGA",
+        "FG_PCT",
+        "FG3_M",
+        "FG3_A",
+        "FG3_PCT",
+        "FTM",
+        "FTA",
+        "FT_PCT",
+        "OREB",
+        "DREB",
+        "REB",
+        "AST",
+        "TOV",
+        "STL",
+        "BLK",
+        "BLKA",
+        "PF",
+        "PFD",
+        "PTS",
+        "PLUS_MINUS",
+        "GP_RANK",
+        "W_RANK",
+        "L_RANK",
+        "W_PCT_RANK",
+        "MIN_RANK",
+        "FGM_RANK",
+        "FGA_RANK",
+        "FG_PCT_RANK",
+        "FG3_M_RANK",
+        "FG3_A_RANK",
+        "FG3_PCT_RANK",
+        "FTM_RANK",
+        "FTA_RANK",
+        "FT_PCT_RANK",
+        "OREB_RANK",
+        "DREB_RANK",
+        "REB_RANK",
+        "AST_RANK",
+        "TOV_RANK",
+        "STL_RANK",
+        "BLK_RANK",
+        "BLKA_RANK",
+        "PF_RANK",
+        "PFD_RANK",
+        "PTS_RANK",
+        "PLUS_MINUS_RANK",
+        "SUM_TIME_PLAYED",
+        "SEASON",
+        "LEAGUE_ID",
+        "SEASON_TYPE",
+        "PER_MODE",
+        "GROUP_QUANTITY"
+      ],
+      "GROUP_QUANTITY": {
+        "2": 2000,
+        "3": 2000,
+        "4": 2000,
+        "5": 2000
+      },
+      "SEASON": {
+        "2027": 8000
+      },
+      "SEASON_TYPE": {
+        "Regular Season": 8000
+      },
+      "PER_MODE": {
+        "Totals": 8000
+      },
+      "invalid_group_ids": 0,
+      "rows_after_filter": 2000,
+      "duplicate_raw_keys": 0,
+      "duplicate_canonical_keys": 0
+    },
+    "advanced": {
+      "source_url": "https://raw.githubusercontent.com/sportsdataverse/hoopR-nba-stats-data/a64ba71b0c7f8f992dbaa5543794b0cc1b007bd4/nba_stats/leaguedash/parquet/lineups_advanced_2027.parquet",
+      "rows_before_filter": 8000,
+      "columns": [
+        "GROUP_SET",
+        "GROUP_ID",
+        "GROUP_NAME",
+        "TEAM_ID",
+        "TEAM_ABBREVIATION",
+        "GP",
+        "W",
+        "L",
+        "W_PCT",
+        "MIN",
+        "E_OFF_RATING",
+        "OFF_RATING",
+        "E_DEF_RATING",
+        "DEF_RATING",
+        "E_NET_RATING",
+        "NET_RATING",
+        "AST_PCT",
+        "AST_TO",
+        "AST_RATIO",
+        "OREB_PCT",
+        "DREB_PCT",
+        "REB_PCT",
+        "TM_TOV_PCT",
+        "EFG_PCT",
+        "TS_PCT",
+        "E_PACE",
+        "PACE",
+        "PACE_PER40",
+        "POSS",
+        "PIE",
+        "GP_RANK",
+        "W_RANK",
+        "L_RANK",
+        "W_PCT_RANK",
+        "MIN_RANK",
+        "OFF_RATING_RANK",
+        "DEF_RATING_RANK",
+        "NET_RATING_RANK",
+        "AST_PCT_RANK",
+        "AST_TO_RANK",
+        "AST_RATIO_RANK",
+        "OREB_PCT_RANK",
+        "DREB_PCT_RANK",
+        "REB_PCT_RANK",
+        "TM_TOV_PCT_RANK",
+        "EFG_PCT_RANK",
+        "TS_PCT_RANK",
+        "PACE_RANK",
+        "PIE_RANK",
+        "SUM_TIME_PLAYED",
+        "SEASON",
+        "LEAGUE_ID",
+        "SEASON_TYPE",
+        "PER_MODE",
+        "GROUP_QUANTITY"
+      ],
+      "GROUP_QUANTITY": {
+        "2": 2000,
+        "3": 2000,
+        "4": 2000,
+        "5": 2000
+      },
+      "SEASON": {
+        "2027": 8000
+      },
+      "SEASON_TYPE": {
+        "Regular Season": 8000
+      },
+      "PER_MODE": {
+        "Totals": 8000
+      },
+      "invalid_group_ids": 0,
+      "rows_after_filter": 2000,
+      "duplicate_raw_keys": 0,
+      "duplicate_canonical_keys": 0
+    }
+  },
+  "raw": {
+    "base_only_count": 144,
+    "advanced_only_count": 144,
+    "common_count": 1856,
+    "base_only_examples": [
+      {
+        "TEAM_ID": 1610612762,
+        "GROUP_ID": "-1628964-1629004-1641718-1642268-1642271-",
+        "GROUP_NAME": "M. Bamba - S. Mykhailiuk - K. George - I. Collier - K. Filipowski",
+        "GP": 1,
+        "MIN": 3.483333,
+        "CANONICAL_GROUP": "1628964-1629004-1641718-1642268-1642271"
+      },
+      {
+        "TEAM_ID": 1610612750,
+        "GROUP_ID": "-203497-1630183-1630228-1630245-1630545-",
+        "GROUP_NAME": "R. Gobert - J. McDaniels - J. Kuminga - A. Dosunmu - T. Shannon Jr",
+        "GP": 3,
+        "MIN": 3.483333,
+        "CANONICAL_GROUP": "1630183-1630228-1630245-1630545-203497"
+      },
+      {
+        "TEAM_ID": 1610612762,
+        "GROUP_ID": "-1628374-1629006-1630182-1641729-1643408-",
+        "GROUP_NAME": "L. Markkanen - J. Okogie - J. Green - B. Sensabaugh - D. Peterson",
+        "GP": 1,
+        "MIN": 3.466667,
+        "CANONICAL_GROUP": "1628374-1629006-1630182-1641729-1643408"
+      },
+      {
+        "TEAM_ID": 1610612751,
+        "GROUP_ID": "-1629008-1630549-1642849-1642874-1643052-",
+        "GROUP_NAME": "M. Porter Jr. - D. Sharpe - N. Traore - D. Wolf - C. Johnson",
+        "GP": 1,
+        "MIN": 3.466667,
+        "CANONICAL_GROUP": "1629008-1630549-1642849-1642874-1643052"
+      },
+      {
+        "TEAM_ID": 1610612764,
+        "GROUP_ID": "-1629027-1641731-1642259-1642267-1642860-",
+        "GROUP_NAME": "T. Young - B. Coulibaly - A. Sarr - B. Carrington - W. Riley",
+        "GP": 1,
+        "MIN": 3.466667,
+        "CANONICAL_GROUP": "1629027-1641731-1642259-1642267-1642860"
+      },
+      {
+        "TEAM_ID": 1610612764,
+        "GROUP_ID": "-1629027-1629028-1642267-1642848-1642860-",
+        "GROUP_NAME": "T. Young - D. Ayton - B. Carrington - T. Johnson - W. Riley",
+        "GP": 1,
+        "MIN": 3.466667,
+        "CANONICAL_GROUP": "1629027-1629028-1642267-1642848-1642860"
+      },
+      {
+        "TEAM_ID": 1610612755,
+        "GROUP_ID": "-2544-203484-1627759-1629014-1629731-",
+        "GROUP_NAME": "L. James - K. Caldwell-Pope - J. Brown - A. Simons - D. Wade",
+        "GP": 2,
+        "MIN": 3.455,
+        "CANONICAL_GROUP": "1627759-1629014-1629731-203484-2544"
+      },
+      {
+        "TEAM_ID": 1610612750,
+        "GROUP_ID": "-1626168-1630183-1630228-1630245-1630538-",
+        "GROUP_NAME": "T. Lyles - J. McDaniels - J. Kuminga - A. Dosunmu - B. Hyland",
+        "GP": 2,
+        "MIN": 3.45,
+        "CANONICAL_GROUP": "1626168-1630183-1630228-1630245-1630538"
+      },
+      {
+        "TEAM_ID": 1610612759,
+        "GROUP_ID": "-1629640-1641705-1642264-1642844-1642868-",
+        "GROUP_NAME": "K. Johnson - V. Wembanyama - S. Castle - D. Harper - C. Bryant",
+        "GP": 2,
+        "MIN": 3.433333,
+        "CANONICAL_GROUP": "1629640-1641705-1642264-1642844-1642868"
+      },
+      {
+        "TEAM_ID": 1610612754,
+        "GROUP_ID": "-1627783-1629614-1630643-1631245-1641738-",
+        "GROUP_NAME": "P. Siakam - A. Nembhard - J. Huff - Q. Jackson - K. Brown",
+        "GP": 2,
+        "MIN": 3.433333,
+        "CANONICAL_GROUP": "1627783-1629614-1630643-1631245-1641738"
+      }
+    ],
+    "base_only_minutes_sum": 454.435,
+    "advanced_only_examples": [
+      {
+        "TEAM_ID": 1610612760,
+        "GROUP_ID": "-1627936-1628392-1642272-1642877-1642892-",
+        "GROUP_NAME": "A. Caruso - I. Hartenstein - J. McCain - M. Peavy - B. Stirtz",
+        "GP": 1,
+        "MIN": 3.0,
+        "POSS": 6,
+        "CANONICAL_GROUP": "1627936-1628392-1642272-1642877-1642892"
+      },
+      {
+        "TEAM_ID": 1610612760,
+        "GROUP_ID": "-1627936-1628392-1629026-1642260-1642272-",
+        "GROUP_NAME": "A. Caruso - I. Hartenstein - K. Williams - N. Topi\u0107 - J. McCain",
+        "GP": 1,
+        "MIN": 3.0,
+        "POSS": 6,
+        "CANONICAL_GROUP": "1627936-1628392-1629026-1642260-1642272"
+      },
+      {
+        "TEAM_ID": 1610612760,
+        "GROUP_ID": "-1627936-1628392-1628983-1631096-1642272-",
+        "GROUP_NAME": "A. Caruso - I. Hartenstein - S. Gilgeous-Alexander - C. Holmgren - J. McCain",
+        "GP": 1,
+        "MIN": 3.0,
+        "POSS": 6,
+        "CANONICAL_GROUP": "1627936-1628392-1628983-1631096-1642272"
+      },
+      {
+        "TEAM_ID": 1610612760,
+        "GROUP_ID": "-1627936-1628392-1628983-1641717-1642272-",
+        "GROUP_NAME": "A. Caruso - I. Hartenstein - S. Gilgeous-Alexander - C. Wallace - J. McCain",
+        "GP": 1,
+        "MIN": 3.0,
+        "POSS": 5,
+        "CANONICAL_GROUP": "1627936-1628392-1628983-1641717-1642272"
+      },
+      {
+        "TEAM_ID": 1610612760,
+        "GROUP_ID": "-1627936-1628392-1628983-1642272-1642349-",
+        "GROUP_NAME": "A. Caruso - I. Hartenstein - S. Gilgeous-Alexander - J. McCain - A. Mitchell",
+        "GP": 4,
+        "MIN": 3.0,
+        "POSS": 6,
+        "CANONICAL_GROUP": "1627936-1628392-1628983-1642272-1642349"
+      },
+      {
+        "TEAM_ID": 1610612760,
+        "GROUP_ID": "-1627936-1631114-1631119-1642272-1643530-",
+        "GROUP_NAME": "A. Caruso - J. Williams - J. Williams - J. McCain - A. Mara",
+        "GP": 1,
+        "MIN": 3.0,
+        "POSS": 5,
+        "CANONICAL_GROUP": "1627936-1631114-1631119-1642272-1643530"
+      },
+      {
+        "TEAM_ID": 1610612760,
+        "GROUP_ID": "-1627936-1628983-1631096-1631114-1631119-",
+        "GROUP_NAME": "A. Caruso - S. Gilgeous-Alexander - C. Holmgren - J. Williams - J. Williams",
+        "GP": 1,
+        "MIN": 3.0,
+        "POSS": 6,
+        "CANONICAL_GROUP": "1627936-1628983-1631096-1631114-1631119"
+      },
+      {
+        "TEAM_ID": 1610612764,
+        "GROUP_ID": "-203076-1629028-1630551-1642267-1642273-",
+        "GROUP_NAME": "A. Davis - D. Ayton - J. Champagnie - B. Carrington - K. George",
+        "GP": 1,
+        "MIN": 3.0,
+        "POSS": 5,
+        "CANONICAL_GROUP": "1629028-1630551-1642267-1642273-203076"
+      },
+      {
+        "TEAM_ID": 1610612764,
+        "GROUP_ID": "-203076-1629028-1642273-1642848-1643407-",
+        "GROUP_NAME": "A. Davis - D. Ayton - K. George - T. Johnson - A. Dybantsa",
+        "GP": 2,
+        "MIN": 3.0,
+        "POSS": 5,
+        "CANONICAL_GROUP": "1629028-1642273-1642848-1643407-203076"
+      },
+      {
+        "TEAM_ID": 1610612764,
+        "GROUP_ID": "-203076-203114-1629027-1630551-1642267-",
+        "GROUP_NAME": "A. Davis - K. Middleton - T. Young - J. Champagnie - B. Carrington",
+        "GP": 1,
+        "MIN": 3.0,
+        "POSS": 8,
+        "CANONICAL_GROUP": "1629027-1630551-1642267-203076-203114"
+      }
+    ],
+    "advanced_only_minutes_sum": 432.0,
+    "GP_different_common_rows": 0,
+    "MIN_different_common_rows": 1838
+  },
+  "canonical": {
+    "base_only_count": 144,
+    "advanced_only_count": 144,
+    "common_count": 1856,
+    "base_only_examples": [
+      {
+        "TEAM_ID": 1610612762,
+        "GROUP_ID": "-1628964-1629004-1641718-1642268-1642271-",
+        "GROUP_NAME": "M. Bamba - S. Mykhailiuk - K. George - I. Collier - K. Filipowski",
+        "GP": 1,
+        "MIN": 3.483333,
+        "CANONICAL_GROUP": "1628964-1629004-1641718-1642268-1642271"
+      },
+      {
+        "TEAM_ID": 1610612750,
+        "GROUP_ID": "-203497-1630183-1630228-1630245-1630545-",
+        "GROUP_NAME": "R. Gobert - J. McDaniels - J. Kuminga - A. Dosunmu - T. Shannon Jr",
+        "GP": 3,
+        "MIN": 3.483333,
+        "CANONICAL_GROUP": "1630183-1630228-1630245-1630545-203497"
+      },
+      {
+        "TEAM_ID": 1610612762,
+        "GROUP_ID": "-1628374-1629006-1630182-1641729-1643408-",
+        "GROUP_NAME": "L. Markkanen - J. Okogie - J. Green - B. Sensabaugh - D. Peterson",
+        "GP": 1,
+        "MIN": 3.466667,
+        "CANONICAL_GROUP": "1628374-1629006-1630182-1641729-1643408"
+      },
+      {
+        "TEAM_ID": 1610612751,
+        "GROUP_ID": "-1629008-1630549-1642849-1642874-1643052-",
+        "GROUP_NAME": "M. Porter Jr. - D. Sharpe - N. Traore - D. Wolf - C. Johnson",
+        "GP": 1,
+        "MIN": 3.466667,
+        "CANONICAL_GROUP": "1629008-1630549-1642849-1642874-1643052"
+      },
+      {
+        "TEAM_ID": 1610612764,
+        "GROUP_ID": "-1629027-1641731-1642259-1642267-1642860-",
+        "GROUP_NAME": "T. Young - B. Coulibaly - A. Sarr - B. Carrington - W. Riley",
+        "GP": 1,
+        "MIN": 3.466667,
+        "CANONICAL_GROUP": "1629027-1641731-1642259-1642267-1642860"
+      },
+      {
+        "TEAM_ID": 1610612764,
+        "GROUP_ID": "-1629027-1629028-1642267-1642848-1642860-",
+        "GROUP_NAME": "T. Young - D. Ayton - B. Carrington - T. Johnson - W. Riley",
+        "GP": 1,
+        "MIN": 3.466667,
+        "CANONICAL_GROUP": "1629027-1629028-1642267-1642848-1642860"
+      },
+      {
+        "TEAM_ID": 1610612755,
+        "GROUP_ID": "-2544-203484-1627759-1629014-1629731-",
+        "GROUP_NAME": "L. James - K. Caldwell-Pope - J. Brown - A. Simons - D. Wade",
+        "GP": 2,
+        "MIN": 3.455,
+        "CANONICAL_GROUP": "1627759-1629014-1629731-203484-2544"
+      },
+      {
+        "TEAM_ID": 1610612750,
+        "GROUP_ID": "-1626168-1630183-1630228-1630245-1630538-",
+        "GROUP_NAME": "T. Lyles - J. McDaniels - J. Kuminga - A. Dosunmu - B. Hyland",
+        "GP": 2,
+        "MIN": 3.45,
+        "CANONICAL_GROUP": "1626168-1630183-1630228-1630245-1630538"
+      },
+      {
+        "TEAM_ID": 1610612759,
+        "GROUP_ID": "-1629640-1641705-1642264-1642844-1642868-",
+        "GROUP_NAME": "K. Johnson - V. Wembanyama - S. Castle - D. Harper - C. Bryant",
+        "GP": 2,
+        "MIN": 3.433333,
+        "CANONICAL_GROUP": "1629640-1641705-1642264-1642844-1642868"
+      },
+      {
+        "TEAM_ID": 1610612754,
+        "GROUP_ID": "-1627783-1629614-1630643-1631245-1641738-",
+        "GROUP_NAME": "P. Siakam - A. Nembhard - J. Huff - Q. Jackson - K. Brown",
+        "GP": 2,
+        "MIN": 3.433333,
+        "CANONICAL_GROUP": "1627783-1629614-1630643-1631245-1641738"
+      }
+    ],
+    "base_only_minutes_sum": 454.435,
+    "advanced_only_examples": [
+      {
+        "TEAM_ID": 1610612760,
+        "GROUP_ID": "-1627936-1628392-1642272-1642877-1642892-",
+        "GROUP_NAME": "A. Caruso - I. Hartenstein - J. McCain - M. Peavy - B. Stirtz",
+        "GP": 1,
+        "MIN": 3.0,
+        "POSS": 6,
+        "CANONICAL_GROUP": "1627936-1628392-1642272-1642877-1642892"
+      },
+      {
+        "TEAM_ID": 1610612760,
+        "GROUP_ID": "-1627936-1628392-1629026-1642260-1642272-",
+        "GROUP_NAME": "A. Caruso - I. Hartenstein - K. Williams - N. Topi\u0107 - J. McCain",
+        "GP": 1,
+        "MIN": 3.0,
+        "POSS": 6,
+        "CANONICAL_GROUP": "1627936-1628392-1629026-1642260-1642272"
+      },
+      {
+        "TEAM_ID": 1610612760,
+        "GROUP_ID": "-1627936-1628392-1628983-1631096-1642272-",
+        "GROUP_NAME": "A. Caruso - I. Hartenstein - S. Gilgeous-Alexander - C. Holmgren - J. McCain",
+        "GP": 1,
+        "MIN": 3.0,
+        "POSS": 6,
+        "CANONICAL_GROUP": "1627936-1628392-1628983-1631096-1642272"
+      },
+      {
+        "TEAM_ID": 1610612760,
+        "GROUP_ID": "-1627936-1628392-1628983-1641717-1642272-",
+        "GROUP_NAME": "A. Caruso - I. Hartenstein - S. Gilgeous-Alexander - C. Wallace - J. McCain",
+        "GP": 1,
+        "MIN": 3.0,
+        "POSS": 5,
+        "CANONICAL_GROUP": "1627936-1628392-1628983-1641717-1642272"
+      },
+      {
+        "TEAM_ID": 1610612760,
+        "GROUP_ID": "-1627936-1628392-1628983-1642272-1642349-",
+        "GROUP_NAME": "A. Caruso - I. Hartenstein - S. Gilgeous-Alexander - J. McCain - A. Mitchell",
+        "GP": 4,
+        "MIN": 3.0,
+        "POSS": 6,
+        "CANONICAL_GROUP": "1627936-1628392-1628983-1642272-1642349"
+      },
+      {
+        "TEAM_ID": 1610612760,
+        "GROUP_ID": "-1627936-1631114-1631119-1642272-1643530-",
+        "GROUP_NAME": "A. Caruso - J. Williams - J. Williams - J. McCain - A. Mara",
+        "GP": 1,
+        "MIN": 3.0,
+        "POSS": 5,
+        "CANONICAL_GROUP": "1627936-1631114-1631119-1642272-1643530"
+      },
+      {
+        "TEAM_ID": 1610612760,
+        "GROUP_ID": "-1627936-1628983-1631096-1631114-1631119-",
+        "GROUP_NAME": "A. Caruso - S. Gilgeous-Alexander - C. Holmgren - J. Williams - J. Williams",
+        "GP": 1,
+        "MIN": 3.0,
+        "POSS": 6,
+        "CANONICAL_GROUP": "1627936-1628983-1631096-1631114-1631119"
+      },
+      {
+        "TEAM_ID": 1610612764,
+        "GROUP_ID": "-203076-1629028-1630551-1642267-1642273-",
+        "GROUP_NAME": "A. Davis - D. Ayton - J. Champagnie - B. Carrington - K. George",
+        "GP": 1,
+        "MIN": 3.0,
+        "POSS": 5,
+        "CANONICAL_GROUP": "1629028-1630551-1642267-1642273-203076"
+      },
+      {
+        "TEAM_ID": 1610612764,
+        "GROUP_ID": "-203076-1629028-1642273-1642848-1643407-",
+        "GROUP_NAME": "A. Davis - D. Ayton - K. George - T. Johnson - A. Dybantsa",
+        "GP": 2,
+        "MIN": 3.0,
+        "POSS": 5,
+        "CANONICAL_GROUP": "1629028-1642273-1642848-1643407-203076"
+      },
+      {
+        "TEAM_ID": 1610612764,
+        "GROUP_ID": "-203076-203114-1629027-1630551-1642267-",
+        "GROUP_NAME": "A. Davis - K. Middleton - T. Young - J. Champagnie - B. Carrington",
+        "GP": 1,
+        "MIN": 3.0,
+        "POSS": 8,
+        "CANONICAL_GROUP": "1629027-1630551-1642267-203076-203114"
+      }
+    ],
+    "advanced_only_minutes_sum": 432.0,
+    "GP_different_common_rows": 0,
+    "MIN_different_common_rows": 1838
+  }
+}
