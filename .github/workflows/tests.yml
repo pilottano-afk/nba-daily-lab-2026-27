@@ -1,0 +1,22 @@
+name: Verifica applicazione
+on:
+  push:
+    paths:
+      - '**.py'
+      - 'requirements*.txt'
+      - '.github/workflows/tests.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements-app.txt
+      - run: python -m compileall -q app.py analytics.py scripts tests
+      - run: python -m unittest discover -s tests
