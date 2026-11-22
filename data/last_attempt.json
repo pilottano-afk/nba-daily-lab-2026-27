@@ -1,5 +1,5 @@
 {
-  "started_at": "2026-11-22T06:20:01.243154+00:00",
+  "started_at": "2026-11-22T06:21:47.736720+00:00",
   "status": "failed",
   "source": "SportsDataverse",
   "promoted": false,
@@ -42,5 +42,5 @@
     "team_stats_opponent_2027.parquet",
     "team_stats_scoring_2027.parquet"
   ],
-  "error": "Sono richiesti esclusivamente quintetti di cinque giocatori"
+  "error": "Copertura incoerente: lineups"
 }
