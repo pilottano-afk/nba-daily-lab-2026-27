@@ -1,0 +1,50 @@
+name: Aggiornamento dati NBA
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 6,7 * * *'
+permissions:
+  contents: write
+concurrency:
+  group: aggiornamento-nba
+  cancel-in-progress: false
+jobs:
+  aggiorna:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verifica ora italiana
+        id: orario
+        env:
+          EVENTO: ${{ github.event_name }}
+        run: |
+          if [ "$EVENTO" = "workflow_dispatch" ] || [ "$(TZ=Europe/Rome date +%H)" = "08" ]; then
+            echo 'esegui=true' >> "$GITHUB_OUTPUT"
+          fi
+      - uses: actions/setup-python@v5
+        if: steps.orario.outputs.esegui == 'true'
+        with:
+          python-version: '3.12'
+      - name: Installa dipendenze
+        if: steps.orario.outputs.esegui == 'true'
+        run: pip install -r requirements.txt
+      - name: Verifica codice e test
+        if: steps.orario.outputs.esegui == 'true'
+        run: |
+          python -m compileall -q scripts tests
+          python -m unittest discover -s tests
+      - name: Acquisisci dati
+        if: steps.orario.outputs.esegui == 'true'
+        run: python scripts/refresh.py --season 2026-27
+      - name: Salva dati e stato del tentativo
+        if: always() && steps.orario.outputs.esegui == 'true'
+        run: |
+          if [ ! -d data ]; then exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/
+          if ! git diff --cached --quiet; then
+            git commit -m 'Aggiorna snapshot NBA e stato acquisizione'
+            git push
+          fi
