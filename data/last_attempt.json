@@ -1,9 +1,9 @@
 {
-  "started_at": "2026-11-22T06:21:47.736720+00:00",
-  "status": "failed",
+  "started_at": "2026-11-23T16:59:27.569613+00:00",
+  "status": "ok",
   "source": "SportsDataverse",
-  "promoted": false,
-  "source_revision": "a64ba71b0c7f8f992dbaa5543794b0cc1b007bd4",
+  "promoted": true,
+  "source_revision": "e2800fea5ca7855026bb90a2ce62b12112b88785",
   "available_2027_files": [
     "lineups_advanced_2027.parquet",
     "lineups_base_2027.parquet",
@@ -42,5 +42,26 @@
     "team_stats_opponent_2027.parquet",
     "team_stats_scoring_2027.parquet"
   ],
-  "error": "Copertura incoerente: lineups"
+  "tables": {
+    "players_base": {
+      "rows": 474,
+      "sha256": "40086f1c2631575a6959f007b45fd33891b1a3402be2fe0ff589654d2f7483c4",
+      "source_url": "https://raw.githubusercontent.com/sportsdataverse/hoopR-nba-stats-data/e2800fea5ca7855026bb90a2ce62b12112b88785/nba_stats/leaguedash/parquet/players_base_2027.parquet"
+    },
+    "players_advanced": {
+      "rows": 474,
+      "sha256": "6154415cde3fac4d018be43c2d9aa7c85ead61efb9f48c8dd399b8b7c5d4129b",
+      "source_url": "https://raw.githubusercontent.com/sportsdataverse/hoopR-nba-stats-data/e2800fea5ca7855026bb90a2ce62b12112b88785/nba_stats/leaguedash/parquet/players_advanced_2027.parquet"
+    },
+    "teams_base": {
+      "rows": 30,
+      "sha256": "db9cc874f21edee30d838592796d3466798a50d719d48f6aa36c1d695eaa38fe",
+      "source_url": "https://raw.githubusercontent.com/sportsdataverse/hoopR-nba-stats-data/e2800fea5ca7855026bb90a2ce62b12112b88785/nba_stats/leaguedash/parquet/teams_base_2027.parquet"
+    },
+    "teams_advanced": {
+      "rows": 30,
+      "sha256": "e150ae01a98101ad59537053d5354d8181125a497e9145cf55490b5435d63543",
+      "source_url": "https://raw.githubusercontent.com/sportsdataverse/hoopR-nba-stats-data/e2800fea5ca7855026bb90a2ce62b12112b88785/nba_stats/leaguedash/parquet/teams_advanced_2027.parquet"
+    }
+  }
 }

@@ -1,0 +1,33 @@
+{
+  "season": "2026-27",
+  "season_type": "Regular Season",
+  "per_mode": "Totals",
+  "source": "NBA Stats tramite SportsDataverse",
+  "source_revision": "e2800fea5ca7855026bb90a2ce62b12112b88785",
+  "source_commit_at": "2026-11-23T15:22:15Z",
+  "updated_at": "2026-11-23T16:59:29.752944+00:00",
+  "snapshot": "snapshots/20261123T165929752794Z",
+  "tables": {
+    "players_base": {
+      "rows": 474,
+      "sha256": "40086f1c2631575a6959f007b45fd33891b1a3402be2fe0ff589654d2f7483c4",
+      "source_url": "https://raw.githubusercontent.com/sportsdataverse/hoopR-nba-stats-data/e2800fea5ca7855026bb90a2ce62b12112b88785/nba_stats/leaguedash/parquet/players_base_2027.parquet"
+    },
+    "players_advanced": {
+      "rows": 474,
+      "sha256": "6154415cde3fac4d018be43c2d9aa7c85ead61efb9f48c8dd399b8b7c5d4129b",
+      "source_url": "https://raw.githubusercontent.com/sportsdataverse/hoopR-nba-stats-data/e2800fea5ca7855026bb90a2ce62b12112b88785/nba_stats/leaguedash/parquet/players_advanced_2027.parquet"
+    },
+    "teams_base": {
+      "rows": 30,
+      "sha256": "db9cc874f21edee30d838592796d3466798a50d719d48f6aa36c1d695eaa38fe",
+      "source_url": "https://raw.githubusercontent.com/sportsdataverse/hoopR-nba-stats-data/e2800fea5ca7855026bb90a2ce62b12112b88785/nba_stats/leaguedash/parquet/teams_base_2027.parquet"
+    },
+    "teams_advanced": {
+      "rows": 30,
+      "sha256": "e150ae01a98101ad59537053d5354d8181125a497e9145cf55490b5435d63543",
+      "source_url": "https://raw.githubusercontent.com/sportsdataverse/hoopR-nba-stats-data/e2800fea5ca7855026bb90a2ce62b12112b88785/nba_stats/leaguedash/parquet/teams_advanced_2027.parquet"
+    }
+  },
+  "coverage_note": "Controlli strutturali superati; completezza calendario e freschezza delle singole tabelle non ancora certificate."
+}
