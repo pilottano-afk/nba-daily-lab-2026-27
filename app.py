@@ -1,4 +1,4 @@
-"""Interfaccia di consultazione: nessuna chiamata live a NBA Stats."""
+"""Consultazione di sezioni verificate, senza richieste live alla fonte."""
 import hashlib
 import json
 from pathlib import Path
@@ -10,42 +10,45 @@ from analytics import combine, per_game, percentiles
 ROOT = Path(__file__).resolve().parent / 'data'
 st.set_page_config(page_title='NBA Daily Lab', page_icon='🏀', layout='wide')
 st.title('NBA Daily Lab · 2026/27')
-st.caption('Giocatori, squadre e quintetti · stagione regolare · fonte NBA Stats')
-
-attempt_path = ROOT / 'last_attempt.json'
-if attempt_path.exists():
-    attempt = json.loads(attempt_path.read_text())
-    if attempt.get('status') == 'failed':
-        st.warning('Ultimo tentativo di aggiornamento non riuscito. Se disponibile, viene mostrata l’ultima acquisizione valida.')
-        with st.expander('Dettagli acquisizione'):
-            st.write(attempt)
-manifest_path = ROOT / 'current.json'
-if not manifest_path.exists():
-    st.info('Prima acquisizione valida non ancora disponibile. Non vengono mostrati dati dimostrativi.')
-    st.link_button('Controlla acquisizione su GitHub', 'https://github.com/pilottano-afk/nba-daily-lab-2026-27/actions')
-    st.stop()
-
+st.caption('Stagione regolare · statistiche stagionali · fonte NBA Stats')
+kind = st.sidebar.radio('Sezione', ['Giocatori', 'Squadre', 'Quintetti'])
+prefix = {'Giocatori': 'players', 'Squadre': 'teams', 'Quintetti': 'lineups'}[kind]
 try:
+    attempt_path = ROOT / 'last_attempt.json'
+    if attempt_path.exists():
+        attempt = json.loads(attempt_path.read_text())
+        if attempt.get('status') == 'failed':
+            st.warning('Ultimo tentativo non riuscito. Gli eventuali dati sotto provengono dall’ultima acquisizione valida.')
+            with st.expander('Diagnosi ultimo tentativo'):
+                st.json(attempt)
+    manifest_path = ROOT / 'current.json'
+    if not manifest_path.exists():
+        st.info('Prima acquisizione valida non ancora disponibile. Nessun dato dimostrativo viene mostrato.')
+        st.stop()
     manifest = json.loads(manifest_path.read_text())
+    if any(f'{prefix}_{suffix}' not in manifest['tables'] for suffix in ['base', 'advanced']):
+        st.warning('Questa sezione non è disponibile nell’acquisizione corrente.')
+        if prefix == 'lineups':
+            st.info('Quintetti sospesi: copertura diversa e minuti non riconciliati tra statistiche base e avanzate. Giocatori e squadre restano consultabili separatamente.')
+        st.stop()
     folder = (ROOT / manifest['snapshot']).resolve()
     if not folder.is_relative_to((ROOT / 'snapshots').resolve()):
-        raise ValueError('Percorso acquisizione non valido')
-    st.caption('Ultima acquisizione riuscita: ' + manifest['updated_at'] + ' · orario UTC')
-    st.caption('La data di acquisizione non certifica la completezza delle ultime partite.')
-    kind = st.sidebar.radio('Sezione', ['Giocatori', 'Squadre', 'Quintetti'])
-    prefix = {'Giocatori': 'players', 'Squadre': 'teams', 'Quintetti': 'lineups'}[kind]
+        raise ValueError('Percorso dati non valido')
     frames = []
     for suffix in ['base', 'advanced']:
         name = f'{prefix}_{suffix}'
         path = folder / f'{name}.parquet'
         if hashlib.sha256(path.read_bytes()).hexdigest() != manifest['tables'][name]['sha256']:
-            raise ValueError('Controllo integrità dati non riuscito')
+            raise ValueError('Verifica integrità dati non riuscita')
         frames.append(pd.read_parquet(path))
     frame = combine(*frames, prefix)
 except (OSError, ValueError, KeyError) as exc:
     st.error(f'Impossibile caricare i dati verificati: {exc}')
     st.stop()
 
+st.caption('Acquisizione riuscita: ' + manifest['updated_at'] + ' · UTC')
+st.caption('Fonte: ' + manifest['source'])
+st.warning('Completezza rispetto al calendario e freschezza delle singole tabelle non ancora certificate. La data sopra indica il download, non l’ultima partita inclusa.')
 minimum = st.sidebar.number_input('Minuti totali minimi', min_value=0, value=50 if prefix == 'lineups' else 100, step=10)
 frame = frame.loc[pd.to_numeric(frame['MIN'], errors='coerce') >= minimum].copy()
 team_column = next((c for c in ['TEAM_ABBREVIATION', 'TEAM_NAME'] if c in frame), None)
@@ -60,7 +63,7 @@ if search:
 mode = st.sidebar.radio('Statistiche di conteggio', ['Totali', 'Per partita'])
 if mode == 'Per partita':
     frame = per_game(frame)
-st.caption(f'Soglia: {minimum} minuti totali. I filtri definiscono anche la popolazione dei percentili. Le percentuali NBA restano frazioni: 0,5 equivale al 50%.')
+st.caption(f'Soglia: {minimum} minuti totali. I percentili si riferiscono esclusivamente al gruppo filtrato. Percentuali in frazioni: 0,5 equivale al 50%.')
 if frame.empty:
     st.info('Nessun risultato con questi filtri.')
     st.stop()
@@ -70,14 +73,14 @@ lower = st.checkbox('Valori più bassi migliori', value=metric in ['DEF_RATING',
 frame['PERCENTILE'] = percentiles(frame, metric, lower)
 ordered = frame.sort_values(metric, ascending=lower, na_position='last')
 st.subheader(f'{kind} · {len(frame)} risultati')
-st.caption('Percentile 100 = valore migliore nel gruppo filtrato; parità con rango medio. Con meno di due valori il percentile non viene calcolato. I giocatori trasferiti possono avere righe distinte per squadra.')
-display_columns = list(dict.fromkeys([label] + ([team_column] if team_column else []) + ['GP'] + metrics + ['PERCENTILE']))
-st.dataframe(ordered[display_columns], hide_index=True, use_container_width=True)
+st.caption('Percentile 100 = valore migliore nel gruppo; parità con rango medio. Con meno di due valori resta mancante. I trasferimenti possono produrre righe distinte per squadra.')
+columns = list(dict.fromkeys([label] + ([team_column] if team_column else []) + ['GP'] + metrics + ['PERCENTILE']))
+st.dataframe(ordered[columns], hide_index=True, use_container_width=True)
 st.download_button('Scarica tabella filtrata', ordered.to_csv(index=False).encode('utf-8'), file_name=f'nba_{prefix}_2026-27.csv', mime='text/csv')
 plot = ordered.head(15).copy()
 plot['ETICHETTA'] = plot[label].astype(str) + (' · ' + plot[team_column].astype(str) if team_column and label != team_column else '')
-chart = alt.Chart(plot).mark_bar().encode(x=alt.X(f'{metric}:Q', scale=alt.Scale(zero=True), title=metric), y=alt.Y('ETICHETTA:N', sort=plot['ETICHETTA'].tolist(), title=None), tooltip=['ETICHETTA', metric, 'PERCENTILE']).properties(height=max(240, len(plot) * 28))
+chart = alt.Chart(plot).mark_bar().encode(x=alt.X(f'{metric}:Q', scale=alt.Scale(zero=True), title=metric), y=alt.Y('ETICHETTA:N', sort=plot['ETICHETTA'].tolist(), title=None), tooltip=['ETICHETTA', metric, 'PERCENTILE']).properties(height=max(240, len(plot)*28))
 st.altair_chart(chart, use_container_width=True)
 with st.expander('Fonte e metodologia'):
-    st.write('Statistiche stagionali aggregate NBA Stats. Rating e percentuali non vengono ricalcolati facendo medie delle singole righe. La modalità per partita divide solo i conteggi per GP. Nessuna inferenza causale dai quintetti con pochi minuti.')
+    st.write('I conteggi per partita sono divisi per GP. Rating e percentuali mantengono i valori della fonte e non sono medie di percentuali. Le sezioni prive delle tabelle richieste rimangono disabilitate.')
     st.json(manifest)
